@@ -1,0 +1,22 @@
+[
+  {
+    "name": "join",
+    "description": "Join the voice channel you are in."
+  },
+  {
+    "name": "leave",
+    "description": "Leave the voice channel you are in."
+  },
+  {
+    "name": "say",
+    "description": "Synthesize the given message and play it in the voice channel.",
+    "options": [
+      {
+        "type": 3,
+        "name": "message",
+        "description": "The message that you want to synthesize.",
+        "required": true
+      }
+    ]
+  }
+]
