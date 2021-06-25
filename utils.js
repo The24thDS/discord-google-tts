@@ -8,8 +8,8 @@ const synthesizeText = async (text) => {
     input: { text },
     voice: {
       languageCode: 'en-UK',
-      name: 'en-GB-Wavenet-B',
-      ssmlGender: 'MALE',
+      name: 'en-GB-Standard-A',
+      ssmlGender: 'FEMALE',
     },
     audioConfig: { audioEncoding: 'OGG_OPUS' },
   };

@@ -44,6 +44,9 @@ client.ws.on('INTERACTION_CREATE', async (interaction) => {
   const guild = await client.guilds.fetch(interaction.guild_id);
   const voiceChannel = guild.members.resolve(interaction.member.user.id).voice
     .channel;
+  console.log(
+    interaction.data.name + ' from ' + interaction.member.user.username
+  );
   switch (interaction.data.name) {
     case 'join':
       reply = await join(voiceChannel, client);
@@ -55,11 +58,13 @@ client.ws.on('INTERACTION_CREATE', async (interaction) => {
       break;
     case 'say':
       const content = interaction.data.options[0].value;
+      console.log(content);
       reply = await say(voiceChannel, client, content);
       if (reply.length) {
         replyToInteraction(client, interaction.id, interaction.token, reply);
       } else {
-        acknowledgeInteraction(client, interaction.id, interaction.token);
+        const message = `${interaction.member.user.username} said: ${content}`;
+        replyToInteraction(client, interaction.id, interaction.token, message);
       }
       break;
 

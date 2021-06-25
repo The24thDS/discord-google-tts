@@ -36,17 +36,15 @@ const leave = async (voiceChannel, client) => {
 const say = async (voiceChannel, client, content) => {
   let connection;
   if (voiceChannel) {
-    let reply = '';
     if (
       !(connection = client.voice.connections.find(
         (vc) => vc.channel.id === voiceChannel.id
       ))
     ) {
       connection = await voiceChannel.join();
-      reply = `Joined voice channel ${voiceChannel}`;
     }
     tts(connection, content);
-    return reply;
+    return '';
   } else {
     return 'You must be in a voice channel.';
   }
